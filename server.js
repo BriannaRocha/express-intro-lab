@@ -1,6 +1,6 @@
 // import modules
 import express from 'express'
-
+import { campaigns } from './data/campaigns-data.js'
 // create Express app
 const app = express()
 
@@ -19,6 +19,12 @@ app.get('/', function(req, res) {
 
 app.get('/home', function(req, res) {
   res.render('home')
+})
+
+app.get('/campaigns', function(req, res) {
+  res.render('campaigns/index', {
+    campaigns: campaigns
+  })
 })
 
 // tell the app to listen on port 3000
